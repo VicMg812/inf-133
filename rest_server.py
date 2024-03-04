@@ -33,14 +33,38 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
                 self.send_header("Content-type", "application/json")
                 self.end_headers()
                 self.wfile.write(json.dumps(estudiante).encode("utf-8"))
+        # elif self.path=='/buscar_estudiante_nombreP/':
+        #     nombre = str(self.path.split("P"))
+        #     estudiante = next(
+        #         (estudiante for estudiante in estudiantes if estudiante["nombre"] == nombre),
+        #         None,
+        #     )
+        #     if estudiante:
+        #         self.send_response(200)
+        #         self.send_header("Content-type", "application/json")
+        #         self.end_headers()
+        #         self.wfile.write(json.dumps(estudiante).encode("utf-8"))
         elif self.path=='/carreras/':
             car=int(self.path.split("Economia"))
             estudiante=next((estudiante for estudiante in estudiantes if estudiante["carrera"]==car),None,)
-            if estudinate:
+            if estudiante:
                 self.send_response(200)
                 self.send_header("Content-type","application/json")
                 self.end_headers()
                 self.wfile.write(json.dumps(estudiante).encode("utf-8"))
+        # elif self.path=='/contcarrera/':
+        #     carreras={}
+        #     for estudiante in estudiantes:
+        #         carrera=estudiante['carrera']
+        #         if carrera in carreras:
+        #             carreras[carrera]+=1
+        #         else:
+        #             carreras[carrera]=1
+        #     if estudiante:
+        #         self.send_response(200)
+        #         self.send_header("Content-type","application/json")
+        #         self.end_headers()
+        #         self.wfile.write(json.dumps(estudiante).encode("utf-8"))
         else:
             self.send_response(404)
             self.send_header("Content-type", "application/json")

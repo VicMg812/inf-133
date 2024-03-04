@@ -10,7 +10,7 @@ ruta_post = url + "agrega_estudiante"
 nuevo_estudiante = {
     "nombre": "Ben",
     "apellido": "Pérez",
-    "carrera": "Economia",
+    "carrera": "Ingeneria Sistemas",
 }
 
 post_response = requests.request(method="POST", url=ruta_post, json=nuevo_estudiante)
@@ -27,7 +27,7 @@ ruta_post = url + "agrega_estudiante"
 nuevo_estudiante = {
     "nombre": "Juanito",
     "apellido": "Lucas",
-    "carrera": "Ingeniería Agronomica",
+    "carrera": "Economia",
 }
 
 post_response = requests.request(method="POST", 
@@ -42,18 +42,18 @@ print(post_response.text)
 # print(filtrar_nombre_response.text)
 
 # POST actualiza un estudiante por la ruta /actualizar_estudiante
-ruta_actualizar = url + "actualizar_estudiante"
-estudiante_actualizado = {
-    "id": 1,
-    "nombre": "Juan",
-    "apellido": "Pérez",
-    "carrera": "Ingeniería Sistema",
-}
-actualizar_response = requests.request(
-    method="POST", url=ruta_actualizar, 
-    json=estudiante_actualizado
-)
-print(actualizar_response.text)
+# ruta_actualizar = url + "actualizar_estudiante"
+# estudiante_actualizado = {
+#     "id": 1,
+#     "nombre": "Juan",
+#     "apellido": "Pérez",
+#     "carrera": "Ingeniería Sistema",
+# }
+# actualizar_response = requests.request(
+#     method="POST", url=ruta_actualizar, 
+#     json=estudiante_actualizado
+# )
+# print(actualizar_response.text)
 #Agregar estudiantes con carrera de Economia
 ruta_post = url + "agrega_estudiante"
 nuevo_estudiante = {
@@ -77,6 +77,20 @@ print(post_response.text)
 #                                 url=ruta_post, 
 #                                 json=nuevo_estudiante)
 # print(post_response.text)
+#buscar estudiante con estudiante con nombre P
+# ruta_buscar_nombreP=url+"/buscar_estudiante_nombreP/"
+# buscar_nombreP_response=requests.request(method="GET",url=ruta_buscar_nombreP)
+# print(buscar_nombreP_response.text)
+#contar cuantas carreras hay
+# ruta_contar_carrera=url+"/contcarrera/"
+# contar_carrera_response=requests.request(method="GET",url=ruta_contar_carrera)
+# print(contar_carrera_response)
+#buscar estudiante con carrera Economia
 ruta_buscar_Economia=url+"/carreras/"
 buscar_Economia_response=requests.request(method="GET",url=ruta_buscar_Economia)
 print(buscar_Economia_response.text)
+#mostrar todos los estudiantes
+post_response = requests.request(method="POST", 
+                                url=ruta_post, 
+                                json=nuevo_estudiante)
+print(post_response.text)
