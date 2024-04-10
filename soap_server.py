@@ -8,6 +8,9 @@ def saludar(nombre):
 def suma_dos_numeros(num1, num2):
     return num1 + num2
 
+def restar(a, b):
+    return a - b
+
 def cadena_palindromo(cadena):
     # Verificar si la cadena es un palíndromo
     return cadena == cadena[::-1]
@@ -34,6 +37,13 @@ dispatcher.register_function(
     suma_dos_numeros,
     returns={"resultado": int},
     args={"num1": int, "num2": int},
+)
+
+dispatcher.register_function(
+    "Restar",
+    restar,
+    returns={"resultado": int},
+    args={"a": int, "b": int},
 )
 
 # Nuevo endpoint para verificar si una cadena es un palíndromo
